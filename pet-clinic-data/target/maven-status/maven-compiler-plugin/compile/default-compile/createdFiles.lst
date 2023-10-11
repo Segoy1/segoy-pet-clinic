@@ -1,5 +1,8 @@
 de\segoy\springframework\model\Pet.class
-de\segoy\springframework\model\PetType.class
 de\segoy\springframework\model\Owner.class
-de\segoy\springframework\model\Person.class
+de\segoy\springframework\services\PetService.class
 de\segoy\springframework\model\Vet.class
+de\segoy\springframework\model\PetType.class
+de\segoy\springframework\services\OwnerService.class
+de\segoy\springframework\services\VetService.class
+de\segoy\springframework\model\Person.class
