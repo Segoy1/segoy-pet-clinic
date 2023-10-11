@@ -50,7 +50,7 @@
     </build>
 
     <scm>
-        <developerConnection>scm:git:git@github.com:Segoy1/segoy-pet-clinic.git</developerConnection>
+        <developerConnection>scm:git:https://github.com/Segoy1/segoy-pet-clinic.git</developerConnection>
         <tag>HEAD</tag>
     </scm>
 
