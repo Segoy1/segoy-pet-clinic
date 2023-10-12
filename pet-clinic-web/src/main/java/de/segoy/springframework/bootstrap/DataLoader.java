@@ -12,12 +12,12 @@ import org.springframework.stereotype.Component;
 @Component
 public class DataLoader implements CommandLineRunner {
 
-    private final OwnerServiceMap ownerService;
-    private final VetServiceMap vetService;
+    private final OwnerService ownerService;
+    private final VetService vetService;
 
-    public DataLoader() {
-        this.ownerService = new OwnerServiceMap();
-        this.vetService = new VetServiceMap();
+    public DataLoader(OwnerService ownerService, VetService vetService) {
+        this.ownerService = ownerService;
+        this.vetService = vetService;
     }
 
     @Override
@@ -37,6 +37,8 @@ public class DataLoader implements CommandLineRunner {
         owner2.setLastName("Lang");
 
         ownerService.save(owner2);
+
+        System.out.println("Loaded Owners");
 
         Vet vet1 = new Vet();
         vet1.setId(1L);
