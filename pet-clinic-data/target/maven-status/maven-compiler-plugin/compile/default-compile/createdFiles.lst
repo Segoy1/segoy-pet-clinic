@@ -1,0 +1,14 @@
+de\segoy\springframework\services\map\AbstractMapService.class
+de\segoy\springframework\services\map\VetServiceMap.class
+de\segoy\springframework\services\PetService.class
+de\segoy\springframework\model\Vet.class
+de\segoy\springframework\model\Pet.class
+de\segoy\springframework\model\Owner.class
+de\segoy\springframework\services\map\PetServiceMap.class
+de\segoy\springframework\model\PetType.class
+de\segoy\springframework\services\map\OwnerServiceMap.class
+de\segoy\springframework\services\OwnerService.class
+de\segoy\springframework\services\VetService.class
+de\segoy\springframework\services\CrudService.class
+de\segoy\springframework\model\Person.class
+de\segoy\springframework\model\BaseEntity.class

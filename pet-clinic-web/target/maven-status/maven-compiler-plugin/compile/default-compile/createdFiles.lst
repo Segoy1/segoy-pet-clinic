@@ -1,0 +1,6 @@
+de\segoy\springframework\controllers\IndexController.class
+de\segoy\springframework\config\PetClinicConfig.class
+de\segoy\springframework\bootstrap\DataLoader.class
+de\segoy\springframework\controllers\OwnerController.class
+de\segoy\springframework\controllers\VetController.class
+de\segoy\springframework\SegoyPetClinicApplication.class
