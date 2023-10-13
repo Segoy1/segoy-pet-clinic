@@ -1,31 +1,55 @@
 package de.segoy.springframework.bootstrap;
 
 import de.segoy.springframework.model.Owner;
+import de.segoy.springframework.model.Pet;
+import de.segoy.springframework.model.PetType;
 import de.segoy.springframework.model.Vet;
 import de.segoy.springframework.services.OwnerService;
+import de.segoy.springframework.services.PetTypeService;
 import de.segoy.springframework.services.VetService;
 import de.segoy.springframework.services.map.OwnerServiceMap;
 import de.segoy.springframework.services.map.VetServiceMap;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
+import java.time.LocalDate;
+
 @Component
 public class DataLoader implements CommandLineRunner {
 
     private final OwnerService ownerService;
     private final VetService vetService;
+    private final PetTypeService petTypeService;
 
-    public DataLoader(OwnerService ownerService, VetService vetService) {
+    public DataLoader(OwnerService ownerService, VetService vetService, PetTypeService petTypeService) {
         this.ownerService = ownerService;
         this.vetService = vetService;
+        this.petTypeService = petTypeService;
     }
 
     @Override
     public void run(String... args) throws Exception {
 
+        PetType dog = new PetType();
+        dog.setName("Dog");
+        PetType savedDogType = petTypeService.save(dog);
+
+        PetType cat = new PetType();
+        dog.setName("Cat");
+        PetType savedCatType = petTypeService.save(cat);
+
         Owner owner1 = new Owner();
         owner1.setFirstName("Klaus");
         owner1.setLastName("Lang");
+        owner1.setAddress("Thunstrasse 2");
+        owner1.setCity("Gwatt");
+        owner1.setTelefone("+31 (79) 234 54 65");
+
+        Pet klausPet = new Pet();
+        klausPet.setPetType(savedDogType);
+        klausPet.setBirthDate(LocalDate.now());
+        klausPet.setName("Peter");
+        owner1.getPets().add(klausPet);
 
         ownerService.save(owner1);
 
@@ -33,6 +57,16 @@ public class DataLoader implements CommandLineRunner {
         Owner owner2 = new Owner();
         owner2.setFirstName("Hans");
         owner2.setLastName("Lang");
+        owner2.setAddress("Thunstrasse 3");
+        owner2.setCity("Thun");
+        owner2.setTelefone("+31 (79) 123 86 43");
+
+        Pet hansPet = new Pet();
+        hansPet.setPetType(savedCatType);
+        hansPet.setBirthDate(LocalDate.now());
+        hansPet.setName("Klaudia");
+        owner2.getPets().add(hansPet);
+
 
         ownerService.save(owner2);
 
