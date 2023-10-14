@@ -1,13 +1,23 @@
 package de.segoy.springframework.model;
 
+import javax.persistence.*;
 import java.util.HashSet;
 import java.util.Set;
 
+@Entity
+@Table(name = "owners")
 public class Owner extends Person {
 
+    @Column
     private String address;
-    private String telefone;
+
+    @Column
+    private String telephone;
+
+    @Column
     private String city;
+
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "owner")
     private Set<Pet> pets = new HashSet<>();
 
     public String getAddress() {
@@ -18,12 +28,12 @@ public class Owner extends Person {
         this.address = address;
     }
 
-    public String getTelefone() {
-        return telefone;
+    public String getTelephone() {
+        return telephone;
     }
 
-    public void setTelefone(String telefone) {
-        this.telefone = telefone;
+    public void setTelephone(String telefone) {
+        this.telephone = telefone;
     }
 
     public String getCity() {
