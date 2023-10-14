@@ -1,10 +1,7 @@
 package de.segoy.springframework.bootstrap;
 
 import de.segoy.springframework.model.*;
-import de.segoy.springframework.services.OwnerService;
-import de.segoy.springframework.services.PetTypeService;
-import de.segoy.springframework.services.SpecialtyService;
-import de.segoy.springframework.services.VetService;
+import de.segoy.springframework.services.*;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
@@ -13,16 +10,22 @@ import java.time.LocalDate;
 @Component
 public class DataLoader implements CommandLineRunner {
 
+    private final VisitService visitService;
     private final OwnerService ownerService;
     private final VetService vetService;
     private final PetTypeService petTypeService;
     private final SpecialtyService specialtyService;
 
-    public DataLoader(OwnerService ownerService, VetService vetService, PetTypeService petTypeService, SpecialtyService specialtyService) {
+    public DataLoader(OwnerService ownerService
+            , VetService vetService
+            , PetTypeService petTypeService
+            , SpecialtyService specialtyService
+            , VisitService visitService) {
         this.ownerService = ownerService;
         this.vetService = vetService;
         this.petTypeService = petTypeService;
         this.specialtyService = specialtyService;
+        this.visitService = visitService;
     }
 
 
@@ -89,6 +92,11 @@ public class DataLoader implements CommandLineRunner {
 
 
         ownerService.save(owner2);
+
+        Visit visit = new Visit();
+        visit.setPet(hansPet);
+        visit.setDate(LocalDate.now());
+        visit.setDescription("Klauende Klaudia");
 
         System.out.println("Loaded Owners");
 
