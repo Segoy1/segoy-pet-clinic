@@ -69,6 +69,7 @@ local.properties
 ######################
 /log/
 /target/
+pet-clinic-web/target/
 
 ######################
 # Gradle
@@ -139,3 +140,8 @@ Desktop.ini
 # ESLint
 ######################
 .eslintcache
+
+HELP.md
+target/
+!**/src/main/**/target/
+!**/src/test/**/target/
