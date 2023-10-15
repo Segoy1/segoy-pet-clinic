@@ -8,6 +8,8 @@ import de.segoy.springframework.services.PetTypeService;
 import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Set;
 
 @Service
@@ -69,4 +71,16 @@ public class OwnerServiceMap extends AbstractMapService<Owner, Long> implements 
     public Owner findByLastName(String lastName) {
         return null;
     }
+
+    public List<Owner> findAllByLastNameLike(String lastName){
+        List<Owner> owners = new ArrayList<>();
+
+        super.findall().forEach(owner -> {
+            if(owner.getLastName().equals(lastName)){
+                owners.add(owner);
+            }
+        });
+        return owners;
+    }
+
 }
